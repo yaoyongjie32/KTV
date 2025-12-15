@@ -1,24 +1,32 @@
 import java.util.Scanner;
 import java.util.Random;
 
-// Main class for lighting control system
+/**
+ * Controlsystem class handles the lighting control system in the KTV rooms.
+ * It allows VIP users to customize lighting effects and styles, while non-VIP users
+ * get randomly assigned lighting configurations.
+ */
 public class Controlsystem {
     // Declare Random object to generate random numbers for lighting/style selection
-    Random r = new Random();
+    private Random r = new Random();
     // Boolean variable to control the loop of lighting type selection (true = continue, false = terminate)
-    boolean answer = true;
+    private boolean answer = true;
     // Flag variable to receive user input for continuing to select other lighting effects (0/1)
-    int flag = 0;
+    private int flag = 0;
     // Store the number of lighting type selected by user (1-6)
-    int lightchoice;
+    private int lightchoice;
     // String to concatenate the description of selected lighting types
-    String lightstring = " ";
+    private String lightstring = " ";
     // Store the number of style selected by user (1-4)
-    int stylechoice;
+    private int stylechoice;
     // String to concatenate the description of selected style
-    String stylestring = " ";
+    private String stylestring = " ";
 
-
+    /**
+     * Handle the lighting control system based on VIP status
+     *
+     * @param vipChoice The VIP status of the user (1 for VIP, 0 for non-VIP)
+     */
     public void controlsystem(int vipChoice) { // Receive VIP selection parameter
         // Define array for lighting types, store English descriptions of 6 optional lighting effects
         String[] lighttype = new String[6];
@@ -41,15 +49,14 @@ public class Controlsystem {
             // Generate random number (1-6) corresponding to 6 lighting types
             lightchoice = r.nextInt(6) + 1;
             // Concatenate the description of randomly selected lighting type
-            lightstring = lightstring + lighttype[lightchoice-1];
+            lightstring = lightstring + lighttype[lightchoice - 1];
             // Generate random number (1-4) corresponding to 4 lighting styles
             stylechoice = r.nextInt(4) + 1;
             // Concatenate the description of randomly selected style
-            stylestring = stylestring + style[stylechoice-1];
+            stylestring = stylestring + style[stylechoice - 1];
             // Output the result of randomly assigned lighting configuration
             System.out.println("The system will randomly assign lighting for you：" + lightstring + " " + stylestring);
-        }
-        else if (vipChoice == 1) { // VIP user: allow free selection of lighting and style
+        } else if (vipChoice == 1) { // VIP user: allow free selection of lighting and style
             // Create Scanner object to receive user input from console
             Scanner sc = new Scanner(System.in);
 
@@ -64,9 +71,9 @@ public class Controlsystem {
                 // Receive the lighting number entered by user
                 lightchoice = sc.nextInt();
                 // Check if the entered lighting number is within valid range (1-6)
-                if(lightchoice >= 1 && lightchoice <= 6) {
+                if (lightchoice >= 1 && lightchoice <= 6) {
                     // Concatenate the description of selected lighting type (add space to separate multiple selections)
-                    lightstring = lightstring + lighttype[lightchoice-1] + " ";
+                    lightstring = lightstring + lighttype[lightchoice - 1] + " ";
                     // Prompt user whether to select other light effects (0 = no, 1 = yes)
                     System.out.println("Do you need to turn on any other light effects?（0/1）：");
                     // Receive user's selection flag
@@ -93,9 +100,9 @@ public class Controlsystem {
             // Receive the style number entered by user
             stylechoice = sc.nextInt();
             // Check if the entered style number is within valid range (1-4)
-            if(stylechoice >= 1 && stylechoice <= 4) {
+            if (stylechoice >= 1 && stylechoice <= 4) {
                 // Concatenate the description of selected style
-                stylestring = stylestring + style[stylechoice-1];
+                stylestring = stylestring + style[stylechoice - 1];
             } else { // If style number is out of range, prompt invalid selection and apply soft mode by default
                 System.out.println("Invalid selection. Soft mode will be applied by default.");
                 stylestring = stylestring + style[0];

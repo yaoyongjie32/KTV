@@ -1,9 +1,17 @@
 import java.util.Scanner;
 
-// Menu class: provides functions to display different types of information (date, time, room type, etc.)
+/**
+ * Menu class provides functions to display different types of information
+ * in the KTV system such as days, times, room types, packages, beverages,
+ * snacks, lighting effects, and styles.
+ */
 public class Menu {
-    // Array to store 7 days of the week (Monday to Sunday)
+
+    /**
+     * Display the list of days of the week
+     */
     public void getdaylist() {
+        // Array to store 7 days of the week (Monday to Sunday)
         String[] daylist = new String[7];
         daylist[0] = "Monday";
         daylist[1] = "Tuesday";
@@ -18,6 +26,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of time periods
+     */
     public void gettimelist() {
         // Array to store 4 business time periods
         String[] timelist = new String[4];
@@ -31,6 +42,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of room types and their prices
+     */
     public void getmodellist() {
         // Array to store 3 room types and their hourly prices
         String[] modellist = new String[3];
@@ -43,6 +57,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of VIP packages
+     */
     public void getpackagelist() {
         // Array to store 2 membership packages (VIP/SVIP)
         String[] packagelist = new String[2];
@@ -54,6 +71,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of beverage types
+     */
     public void getbeveragetype() {
         // Array to store 13 types of beverages
         String[] beveragetype = new String[13];
@@ -76,6 +96,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of snack types
+     */
     public void getsnacktype() {
         // Array to store 6 types of snacks
         String[] snacktype = new String[6];
@@ -91,7 +114,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the list of lighting effects
+     */
     public void getlighttype() {
+        // Array to store 6 types of light effects
         String[] lighttype = new String[6];
         lighttype[0] = "Colorful LED Rain Light Effect";
         lighttype[1] = "Mirror Ball Reflection Effect";
@@ -99,12 +126,15 @@ public class Menu {
         lighttype[3] = "Strobe Light Effect";
         lighttype[4] = "LED Strip Light Effect";
         lighttype[5] = "Moving Head Light Effect";
-        // Array to store 6 types of light effects
+        // Loop through the array and print each light effect
         for (int i = 0; i < 6; i++) {
             System.out.println(lighttype[i]);
         }
     }
 
+    /**
+     * Display the list of lighting styles
+     */
     public void getstyle() {
         // Array to store 4 light & shadow atmosphere styles
         String[] style = new String[4];
@@ -118,6 +148,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Display the main menu and handle user interactions
+     */
     public void menu() {
         // Create Scanner object to receive user input
         Scanner sc = new Scanner(System.in);
@@ -126,48 +159,47 @@ public class Menu {
         // Infinite loop until user enters 0 to exit
         while (true) {
             // Print menu operation instructions
-            System.out.println("Enter 1 2 3 4 5 6 7 8 respectively to" +
-                    " display 1.Date 2.Time 3.Room Type 4.VIP 5.Package 6.Beverages 7.Snacks 8.Light Effects Light " +
-                    "& Shadow Atmosphere (Enter 0 to exit the menu)");
+            System.out.println("Enter 1 to display Day");
+            System.out.println("Enter 2 to display Time");
+            System.out.println("Enter 3 to display Room type");
+            System.out.println("Enter 4 to display VIP package");
+            System.out.println("Enter 5 to display Beverage");
+            System.out.println("Enter 6 to display Snacks");
+            System.out.println("Enter 7 to display Light effects");
+            System.out.println("Enter 8 to display Shadow atmosphere");
+            System.out.println("Enter 0 to exit the menu");
             // Receive user's menu selection (integer 0-8)
             int menuchoice = sc.nextInt();
             // If user input is not 0, execute corresponding function
-            if(menuchoice != 0){
+            if (menuchoice != 0) {
                 if (menuchoice == 1) {
                     // Display day list
                     getdaylist();
-                }
-                else if (menuchoice == 2) {
+                } else if (menuchoice == 2) {
                     // Display time list
                     gettimelist();
-                }
-                else if (menuchoice == 3) {
+                } else if (menuchoice == 3) {
                     // Display room type list
                     getmodellist();
-                }
-                else if (menuchoice == 4) {
+                } else if (menuchoice == 4) {
                     // Display VIP package list
                     getpackagelist();
-                }
-                else if (menuchoice == 5) {
+                } else if (menuchoice == 5) {
                     // Display beverage type list
                     getbeveragetype();
-                }
-                else if (menuchoice == 6) {
+                } else if (menuchoice == 6) {
                     // Display snack type list
                     getsnacktype();
-                }
-                else if (menuchoice == 7) {
+                } else if (menuchoice == 7) {
                     // Display light effect list
                     getlighttype();
-                }
-                else if (menuchoice == 8) {
+                } else if (menuchoice == 8) {
                     // Display light style list
                     getstyle();
                 }
             }
             // If user input is 0, exit the menu
-            else{
+            else {
                 System.out.println("Menu exited");
                 // Break the infinite loop
                 break;
