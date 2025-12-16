@@ -68,7 +68,7 @@ class Driver {
                 int num3 = r.nextInt(10); // Random digit (0-9) for units place
                 roomnumber = num1 * 100 + num2 * 10 + num3;
                 // Display welcome message and assigned room number
-                System.out.println("Welcome to GATHERING KTV, Room Number：" + roomnumber);
+                System.out.println("======== Welcome to GATHERING KTV, Room Number：" + roomnumber + " ========");
 
                 // Step 6: Handle beverage and snack service (pass VIP status for privilege check)
                 System.out.println("Beverage and Snack Service：");
@@ -87,6 +87,11 @@ class Driver {
                 c.controlsystem(vipChoice); // Pass VIP choice to control light effect (only VIP can select)
 
                 System.out.println("Total Price：" + price);
+
+                // Instantiate Songinput class to create a song requesting system instance
+                Songinput songinput = new Songinput();
+                // Call the core method of song input to start the song requesting and search process
+                songinput.songinput();
                 System.out.println("Have a great time!");
             }
             // If select not to serve next guest (answer == 0)
@@ -99,7 +104,7 @@ class Driver {
         }
 
         // Information search section
-        System.out.println("Welcome to Information Search");
+        System.out.println("======== Welcome to Information Search of Users ========");
         while (true) {
             System.out.println("Enter 1 to start, 0 to end");
             int searchingdecision = sc.nextInt();

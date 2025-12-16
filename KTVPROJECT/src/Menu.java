@@ -219,6 +219,10 @@ public class Menu {
                     System.out.println( RED + "Enter 8 to display Shadow atmosphere" + RESET);
                     System.out.println( YELLOW + "Enter 0 to exit the menu" + RESET);
                 }
+                else{
+                    //Implement the Pending Verification Cyclic Application Menu
+                    System.out.println("Error, please enter the right number");
+                }
             }
             // If user input is 0, exit the menu
             else {
