@@ -154,20 +154,29 @@ public class Menu {
     public void menu() {
         // Create Scanner object to receive user input
         Scanner sc = new Scanner(System.in);
+         final String RESET = "\033[0m";       // Reset all text styles to default
+         final String RED = "\033[31m";        // Set text color to red
+         final String GREEN = "\033[32m";      // Set text color to green
+         final String YELLOW = "\033[33m";     // Set text color to yellow
+         final String BLUE = "\033[34m";       // Set text color to blue
+         final String PURPLE = "\033[35m";     // Set text color to purple
+         final String CYAN = "\033[36m";       // Set text color to cyan
+         final String WHITE = "\033[37m";      // Set text color to white
         // Print welcome message and menu prompt
         System.out.println("Welcome! The following is the menu：");
+        System.out.println( RED + "Enter 1 to display Day" + RESET);
+        System.out.println( GREEN + "Enter 2 to display Time" + RESET);
+        System.out.println( YELLOW + "Enter 3 to display Room type" + RESET);
+        System.out.println( BLUE + "Enter 4 to display VIP package" + RESET);
+        System.out.println( PURPLE + "Enter 5 to display Beverage" + RESET);
+        System.out.println( CYAN + "Enter 6 to display Snacks" + RESET);
+        System.out.println( WHITE + "Enter 7 to display Light effects" + RESET);
+        System.out.println( RED + "Enter 8 to display Shadow atmosphere" + RESET);
+        System.out.println( GREEN + "Enter 9 to return to the menu" + RESET);
+        System.out.println( YELLOW + "Enter 0 to exit the menu" + RESET);
         // Infinite loop until user enters 0 to exit
         while (true) {
             // Print menu operation instructions
-            System.out.println("Enter 1 to display Day");
-            System.out.println("Enter 2 to display Time");
-            System.out.println("Enter 3 to display Room type");
-            System.out.println("Enter 4 to display VIP package");
-            System.out.println("Enter 5 to display Beverage");
-            System.out.println("Enter 6 to display Snacks");
-            System.out.println("Enter 7 to display Light effects");
-            System.out.println("Enter 8 to display Shadow atmosphere");
-            System.out.println("Enter 0 to exit the menu");
             // Receive user's menu selection (integer 0-8)
             int menuchoice = sc.nextInt();
             // If user input is not 0, execute corresponding function
@@ -196,6 +205,19 @@ public class Menu {
                 } else if (menuchoice == 8) {
                     // Display light style list
                     getstyle();
+                }
+                else if (menuchoice == 9){
+                    //Return to the menu
+                    System.out.println("Welcome! The following is the menu：");
+                    System.out.println( RED + "Enter 1 to display Day" + RESET);
+                    System.out.println( GREEN + "Enter 2 to display Time" + RESET);
+                    System.out.println( YELLOW + "Enter 3 to display Room type" + RESET);
+                    System.out.println( BLUE + "Enter 4 to display VIP package" + RESET);
+                    System.out.println( PURPLE + "Enter 5 to display Beverage" + RESET);
+                    System.out.println( CYAN + "Enter 6 to display Snacks" + RESET);
+                    System.out.println( WHITE + "Enter 7 to display Light effects" + RESET);
+                    System.out.println( RED + "Enter 8 to display Shadow atmosphere" + RESET);
+                    System.out.println( YELLOW + "Enter 0 to exit the menu" + RESET);
                 }
             }
             // If user input is 0, exit the menu
